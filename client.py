@@ -483,7 +483,7 @@ class Client:
 
 
     def group_admins(self, groupId):
-        url = self.api["URL"] + "/" + self.session + "/" + ENDPOINTS["group-admins"]["url"] + "/" + groupId
+        url = self.api["URL"] + "/" + self.session + "/" + ENDPOINTS["group-admins"]["url"] % groupId
         return self.__request_api(ENDPOINTS["group-admins"]["method"], url)
 
 
