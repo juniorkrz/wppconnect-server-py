@@ -332,8 +332,8 @@ class Client:
 
 
     def send_voice(self, phone, base64Ptt, isGroup):
-        url = self.api["URL"] + "/" + self.session + "/" + ENDPOINTS["send-voice"]["url"]
-        return self.__request_api(ENDPOINTS["send-voice"]["method"], url, {"phone": phone, "base64Ptt": base64Ptt, "isGroup": isGroup})
+        url = self.api["URL"] + "/" + self.session + "/" + ENDPOINTS["send-voice-base64"]["url"]
+        return self.__request_api(ENDPOINTS["send-voice-base64"]["method"], url, {"phone": phone, "base64Ptt": base64Ptt, "isGroup": isGroup})
 
 
     def send_reply(self, phone, message, messageId, isGroup):
@@ -483,7 +483,7 @@ class Client:
 
 
     def group_admins(self, groupId):
-        url = self.api["URL"] + "/" + self.session + "/" + ENDPOINTS["group-admins"]["url"] + "/" + groupId
+        url = self.api["URL"] + "/" + self.session + "/" + ENDPOINTS["group-admins"]["url"] % groupId
         return self.__request_api(ENDPOINTS["group-admins"]["method"], url)
 
 
