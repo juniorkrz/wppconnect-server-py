@@ -21,6 +21,7 @@ ENDPOINTS = {
     # Chat
     "all-chats": {"method": "GET", "url": "all-chats"},
     "chat-by-id": {"method": "GET", "url": "chat-by-id/%s"},
+    "message-by-id": {"method": "GET", "url": "message-by-id/%s"},
     "chat-is-online": {"method": "GET", "url": "chat-is-online/%s"},
     "all-chats-with-messages": {"method": "GET", "url": "all-chats-with-messages"},
     "all-messages-in-chat": {"method": "GET", "url": "all-messages-in-chat/%s"},
@@ -219,6 +220,10 @@ class Client:
     def chat_by_id(self, phone):
         url = self.api["URL"] + "/" + self.session + "/" + ENDPOINTS["chat-by-id"]["url"] % phone
         return self.__request_api(ENDPOINTS["chat-by-id"]["method"], url)
+
+    def message_by_id(self, messageId):
+        url = self.api["URL"] + "/" + self.session + "/" + ENDPOINTS["message-by-id"]["url"] % messageId
+        return self.__request_api(ENDPOINTS["message-by-id"]["method"], url)
 
 
     def chat_is_online(self, phone):
